@@ -30,6 +30,12 @@ var UrlCopy = mongoose.model("urlCopy", urlSchema, "urlcopies");
 
 //handling the requests
 
+app.get("/", (req, res) => {
+
+    res.send("type after the existin url a new\/ - the requested shortened url - ");
+
+});
+
 app.get("/:url", (req, res) => {
 
     urlParam = req.params.url;
