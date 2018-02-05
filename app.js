@@ -94,15 +94,15 @@ app.get("/new/:url", (req, res) => {
            
             // "requestedUrl shortVersionOfUrl -_id",
 
-            // UrlCopy.find({requestedUrl: requestedSite},  (error, data) => {
+            UrlCopy.find({requestedUrl: requestedSite},  (error, databack) => {
 
-            //     if (error) {
-            //         res.json(error);
-            //     } else {
-            //         res.json(data[0]);
-            //     }
+                if (error) {
+                    res.json(error);
+                } else {
+                    res.json(databack[0]);
+                }
 
-            // });
+            });
 
         });
         
