@@ -90,18 +90,19 @@ app.get("/new/:url", (req, res) => {
             (err) => {
                 console.log(err);
             }
-           
+            
+            res.json({"requested url": data.requestedUrl, "short version of url": data.shortVersionOfUrl});
             // ,"requestedUrl shortVersionOfUrl -_id"
 
-            UrlCopy.find({requestedUrl: requestedSite}, (error, databack) => {
+            // UrlCopy.find({requestedUrl: requestedSite}, (error, databack) => {
 
-                if (error) {
-                    res.json(error);
-                } else {
-                    res.json(databack[0]);
-                }
+            //     if (error) {
+            //         res.json(error);
+            //     } else {
+            //         res.json(databack[0]);
+            //     }
 
-            });
+            // });
 
         });
         
