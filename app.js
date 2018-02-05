@@ -91,7 +91,8 @@ app.get("/new/:url", (req, res) => {
                 console.log(err);
             }
             
-            res.json({"requested url": data.requestedUrl, "short version of url": data.shortVersionOfUrl});
+            res.json(data);
+            // {"requested url": data.requestedUrl, "short version of url": data.shortVersionOfUrl}
             // ,"requestedUrl shortVersionOfUrl -_id"
 
             // UrlCopy.find({requestedUrl: requestedSite}, (error, databack) => {
