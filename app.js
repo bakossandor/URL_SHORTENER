@@ -36,6 +36,7 @@ app.get("/:url", (req, res) => {
     
     // if the req is the shortnumber the server find if it is valid and redirect to the requested page
     if (!isNaN(urlParam)) {
+        
         UrlCopy.find({shortVersionOfUrl: urlParam}, (err, data) => {
 
             if (err) {
@@ -48,6 +49,7 @@ app.get("/:url", (req, res) => {
     } 
     // if the req is the stored web adress give redirect to there
     else {
+
         UrlCopy.find({requestedUrl: urlParam}, (err, data) => {
 
             if (err) {
@@ -78,7 +80,21 @@ app.get("/new/:url", (req, res) => {
             (err) => {
                 console.log(err);
             };
-            res.json(data);
+            // res.json(data);
+            projection = {
+                requestedUrl: 1, 
+                shortVersionOfUrl: 1, 
+                _id: 0
+            }
+            UrlCopy.find({requestedUrl: requestedSite}, "requestedUrl shortVersionOfUrl -_id", (error, data) => {
+
+                if (error) {
+                    res.json(error);
+                } else {
+                    res.json(data[0]);
+                }
+
+            });
 
         });
         
