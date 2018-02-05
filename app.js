@@ -49,8 +49,8 @@ app.get("/:url", (req, res) => {
                 res.send("not a valid url request");
             } else {
 
-                res.json(data);
-                // res.redirect(`http://${data[0].requestedUrl}`);
+                // res.json(data);
+                res.redirect(`http://${data[0].requestedUrl}`);
 
             }
             
