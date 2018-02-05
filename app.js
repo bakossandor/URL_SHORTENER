@@ -49,8 +49,8 @@ app.get("/:url", (req, res) => {
                 res.send("not a valid url request");
             } else {
 
-                // res.json(data);
-                res.redirect(`http://${data[0].requestedUrl}`);
+                res.json(data);
+                // res.redirect(`http://${data[0].requestedUrl}`);
 
             }
             
@@ -64,7 +64,7 @@ app.get("/:url", (req, res) => {
             if (err) {
                 res.send("not a valid url request");
             } else {
-                res.redirect(`http://${data[0].requestedUrl}`);
+                // res.redirect(`http://${data[0].requestedUrl}`);
                 // res.json(data);
             }
 
@@ -92,15 +92,17 @@ app.get("/new/:url", (req, res) => {
             };
             res.json(data);
            
-            UrlCopy.find({requestedUrl: requestedSite}, "requestedUrl shortVersionOfUrl -_id", (error, data) => {
+            // "requestedUrl shortVersionOfUrl -_id",
 
-                if (error) {
-                    res.json(error);
-                } else {
-                    res.json(data[0]);
-                }
+            // UrlCopy.find({requestedUrl: requestedSite},  (error, data) => {
 
-            });
+            //     if (error) {
+            //         res.json(error);
+            //     } else {
+            //         res.json(data[0]);
+            //     }
+
+            // });
 
         });
         
