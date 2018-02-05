@@ -91,9 +91,9 @@ app.get("/new/:url", (req, res) => {
                 console.log(err);
             }
            
-            // ,
+            // ,"requestedUrl shortVersionOfUrl -_id"
 
-            UrlCopy.find({requestedUrl: requestedSite}, "requestedUrl shortVersionOfUrl -_id", (error, databack) => {
+            UrlCopy.find({requestedUrl: requestedSite}, (error, databack) => {
 
                 if (error) {
                     res.json(error);
